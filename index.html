@@ -1,0 +1,526 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>منصة نحو مع يحيى</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --primary:#071424;
+    --secondary:#10263e;
+    --gold:#d8b05f;
+    --white:#ffffff;
+    --gray:#b8c1cc;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Cairo,sans-serif;
+    background:var(--primary);
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(20px);
+    background:rgba(7,20,36,.95);
+    border-bottom:1px solid rgba(216,176,95,.2);
+}
+
+.navbar{
+    height:85px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+}
+
+.logo h2{
+    color:var(--gold);
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:65px;
+    line-height:1.3;
+}
+
+.hero span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:var(--gray);
+    margin:25px 0;
+    line-height:2;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:linear-gradient(45deg,#d8b05f,#f0ce8d);
+    color:#071424;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:900;
+}
+
+.hero-image{
+    text-align:center;
+}
+
+.hero-image img{
+    width:450px;
+    max-width:100%;
+    border-radius:50%;
+    border:7px solid var(--gold);
+    box-shadow:0 0 50px rgba(216,176,95,.3);
+}
+
+.section{
+    padding:100px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:45px;
+    color:var(--gold);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:var(--secondary);
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.stat h2{
+    color:var(--gold);
+    font-size:40px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--secondary);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+}
+
+.card-content p{
+    color:var(--gray);
+    line-height:1.8;
+}
+
+.card-content a{
+    margin-top:20px;
+    display:inline-block;
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.teacher{
+    background:var(--secondary);
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+}
+
+.teacher img{
+    width:180px;
+    border-radius:50%;
+    border:5px solid var(--gold);
+    margin-bottom:20px;
+}
+
+.teacher p{
+    max-width:700px;
+    margin:auto;
+    color:var(--gray);
+    line-height:2;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:20px 0;
+    color:var(--gray);
+}
+
+.whatsapp{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    background:#25D366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 0 20px rgba(37,211,102,.4);
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#aaa;
+}
+
+@media(max-width:900px){
+
+.hero-content{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.stats{
+    grid-template-columns:1fr 1fr;
+}
+
+nav ul{
+    display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+<img src="logo.png">
+<h2>نحو مع يحيى</h2>
+</div>
+
+<nav>
+<ul>
+<li><a href="#">الرئيسية</a></li>
+<li><a href="#courses">الكورسات</a></li>
+<li><a href="#teacher">المعلم</a></li>
+<li><a href="#contact">تواصل</a></li>
+<li><a href="login.html">دخول</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<div>
+
+<h1>
+تعلم <span>النحو العربي</span><br>
+بطريقة سهلة وحديثة
+</h1>
+
+<p>
+منصة تعليمية متخصصة في النحو العربي، نور البيان،
+وتأسيس القراءة والكتابة للصغار والكبار.
+</p>
+
+<a href="#courses" class="btn">
+ابدأ التعلم
+</a>
+
+</div>
+
+<div class="hero-image">
+
+<img src="logo.png">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<h2>500+</h2>
+<p>طالب</p>
+</div>
+
+<div class="stat">
+<h2>120+</h2>
+<p>درس</p>
+</div>
+
+<div class="stat">
+<h2>25+</h2>
+<p>اختبار</p>
+</div>
+
+<div class="stat">
+<h2>5+</h2>
+<p>سنوات خبرة</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="courses">
+
+<div class="container">
+
+<h2 class="title">
+الكورسات
+</h2>
+
+<div class="categories">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700">
+
+<div class="card-content">
+
+<h3>نور البيان</h3>
+
+<p>
+تعليم القراءة والكتابة للمبتدئين.
+</p>
+
+<a href="#">
+دخول الكورس
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=700">
+
+<div class="card-content">
+
+<h3>تأسيس النحو</h3>
+
+<p>
+من الصفر حتى الإتقان.
+</p>
+
+<a href="#">
+دخول الكورس
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700">
+
+<div class="card-content">
+
+<h3>النحو الثانوي</h3>
+
+<p>
+شرح المناهج والمراجعات النهائية.
+</p>
+
+<a href="#">
+دخول الكورس
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="teacher">
+
+<div class="container">
+
+<h2 class="title">
+المعلم
+</h2>
+
+<div class="teacher">
+
+<img src="logo.png">
+
+<h2>يحيى خالد</h2>
+
+<p>
+
+طالب بكلية التربية قسم اللغة العربية، أقدم شرحًا مبسطًا للنحو،
+وتأسيس اللغة العربية، ونور البيان بأسلوب حديث يناسب
+جميع المستويات.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section contact" id="contact">
+
+<div class="container">
+
+<h2 class="title">
+تواصل معنا
+</h2>
+
+<p>
+واتساب: 01015815891
+</p>
+
+<a href="https://wa.me/201015815891"
+class="btn">
+راسلنا الآن
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 منصة نحو مع يحيى
+
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/201015815891">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+</body>
+</html>
